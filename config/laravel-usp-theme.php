@@ -2,12 +2,22 @@
 
 $admin = [
     [
-        'text' => '<i class="fas fa-atom"></i>  SubItem 1',
-        'url' => 'subitem1',
+       'type' => 'header',
+        'text' => 'Cadastrar',
     ],
     [
-        'text' => 'SubItem 2',
-        'url' =>  '/subitem2',
+        'text' => 'Ramais',
+        'url' =>  '/telefones/create',
+        'can' => 'admin',
+    ],
+    [
+        'text' => 'Cadastrar Divisões',
+        'url' =>  '/divisas/create',
+        'can' => 'admin',
+    ],
+    [
+        'text' => 'Cadastrar Endereços',
+        'url' =>  '/enderecos/create',
         'can' => 'admin',
     ],
     [
@@ -15,12 +25,25 @@ $admin = [
     ],
     [
         'type' => 'header',
-        'text' => 'Cabeçalho',
+         'text' => 'Listagens',
+     ],
+     [
+        'text' => 'Ramais',
+        'url' =>  '/telefones',
+        'can' => 'admin',
     ],
     [
-        'text' => 'SubItem 3',
-        'url' => 'subitem3',
+        'text' => 'Divisões',
+        'url' =>  '/divisas',
+        'can' => 'admin',
     ],
+    [
+        'text' => 'Endereços',
+        'url' =>  '/enderecos',
+        'can' => 'admin',
+    ],
+
+
 ];
 
 $submenu2 = [
@@ -45,12 +68,7 @@ $menu = [
         'key' => 'menu_dinamico',
     ],
     [
-        'text' => 'Drop Down',
-        'submenu' => $submenu2,
-        'can' => '',
-    ],
-    [
-        'text' => 'Está logado',
+        'text' => 'Permissões ativas',
         'url' => config('app.url') . '/logado', // com caminho absoluto
         'can' => 'user',
     ],

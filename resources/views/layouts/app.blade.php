@@ -16,12 +16,13 @@
 
 @section('title')
   @parent
+  <link rel="stylesheet" href="/css/styles.css">
 @endsection
 
 @section('styles')
   @parent
   <style>
-    /*seus estilos*/
+   
   </style>
 @endsection
 
