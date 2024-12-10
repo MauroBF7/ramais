@@ -8,7 +8,7 @@ $admin = [
     [
         'text' => 'Ramais',
         'url' =>  '/telefones/create',
-        'can' => 'admin',
+        'can' => 'manager',
     ],
     [
         'text' => 'Cadastrar Divisões',

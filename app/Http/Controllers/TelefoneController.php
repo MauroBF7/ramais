@@ -32,7 +32,8 @@ class TelefoneController extends Controller
      */
     public function index(Request $request)
     {
-        $telefones= Telefone::paginate(50);
+        $this->authorize('user');
+        $telefones= Telefone::orderBy('ramaln','ASC')->get();
         $divisas= Divisa::all();
         $enderecos= Endereco::all();
         return view('layouts.telefones.index',['telefones'=>$telefones, 'divisas'=>$divisas, 'enderecos'=>$enderecos, 'request'=>$request->all()]);
@@ -43,6 +44,7 @@ class TelefoneController extends Controller
      */
     public function create()
     {
+        $this->authorize('manager');
         $divisas= Divisa::all();
         $enderecos= Endereco::all();
         return view('layouts.telefones.create',['divisas'=>$divisas, 'enderecos'=>$enderecos]);
@@ -55,6 +57,7 @@ class TelefoneController extends Controller
     {
         //dd($request);
         //$request->validate([]);
+        $this->authorize('manager');
         $telefone = Telefone::create([
             'ramaln' => $request->ramaln,
             'responsa' => $request->responsa,
@@ -81,6 +84,7 @@ class TelefoneController extends Controller
      */
     public function edit(Telefone $telefone)
     {
+        $this->authorize('manager');
         $divisas= Divisa::all();
         $enderecos= Endereco::all();
         return view('layouts.telefones.edit',['telefone'=>$telefone, 'divisas'=>$divisas, 'enderecos'=>$enderecos]);
@@ -89,6 +93,7 @@ class TelefoneController extends Controller
     //**Função para solicitação de troca de ramais - por email */
     public function troca(Telefone $telefone)
     {
+        $this->authorize('user');
         $divisas= Divisa::all();
         $enderecos= Endereco::all();
         //aqui colocar a view do envia email
@@ -102,6 +107,7 @@ class TelefoneController extends Controller
      */
     public function update(UpdateTelefoneRequest $request, Telefone $telefone)
     {
+        $this->authorize('manager');
         $request->validate([]);
         $telefone= Telefone::find($request->input('id'));
         $telefone->update($request->all());
@@ -116,6 +122,7 @@ class TelefoneController extends Controller
     public function envio(Request $request, Telefone $telefone)
     {
 
+        $this->authorize('user');
         $responsa= $request;
         //dd($divisao);
         $name= "Aplicativo Ramais PRIP";
@@ -130,6 +137,7 @@ class TelefoneController extends Controller
     public function destroy(Request $request, Telefone $telefone)
     {
         //dd($telefone);
+        $this->authorize('manager');
         $telefone->delete();
         $request->session()->flash('alert-success', 'Ramal apagado!');
         return redirect()->route('telefones.index');
@@ -137,7 +145,8 @@ class TelefoneController extends Controller
 
     /*** Função para exportação da lista de telefones como PDF */
     public function exportacao(){
-        $telefones= Telefone::all();
+        $this->authorize('user');
+        $telefones= Telefone::orderBy('ramaln','ASC')->get();
         $divisas= Divisa::all();
         $enderecos= Endereco::all();
         setlocale(LC_ALL,'pt_BR.utf-8','pt_BR','Portuguese_Brazil');

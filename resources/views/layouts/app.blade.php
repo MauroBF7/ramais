@@ -16,13 +16,14 @@
 
 @section('title')
   @parent
-  <link rel="stylesheet" href="/css/styles.css">
 @endsection
 
 @section('styles')
   @parent
   <style>
-   
+    .tdbotao{
+        text-align: center;
+    }
   </style>
 @endsection
 

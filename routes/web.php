@@ -39,7 +39,7 @@ Route::post('/enderecos/storeModal',[EnderecoController::class,'storeModal'])->n
 Route::resource('enderecos',EnderecoController::class);
 Route::resource('divisas',DivisaController::class);
 
-Route::get('/telefones/{telefone}/envio-email',[TelefoneController::class,'troca'])->name('telefone.troca');
+Route::get('/telefones/{telefone}/envio-email',[TelefoneController::class,'troca'])->name('telefones.troca');
 Route::post('/telefones/envio/{telefone}',[TelefoneController::class,'envio'])->name('telefones.envio');
 Route::resource('telefones',TelefoneController::class);
 

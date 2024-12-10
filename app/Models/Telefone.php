@@ -12,7 +12,7 @@ class Telefone extends Model
     use HasFactory, Notifiable;
     protected $table='telefones';
     protected $fillable= ['ramaln','responsa','divisas_id','secao','enderecos_id'];
-
+    
     public function enviaEditRamal($token){
         //dd('Chegamos até aqui');
         $this->notify(new SolTrocaRamalNotification);
