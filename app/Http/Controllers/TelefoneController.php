@@ -56,8 +56,18 @@ class TelefoneController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        //$request->validate([]);
         $this->authorize('manager');
+        $request->validate([
+            'ramaln'=>'required|min:9|max:9|unique:telefones',
+            'divisas_id'=>'required',
+            'enderecos_id'=>'required'
+        ],[
+            'required'=>'O campo :attribute é de preenchimento obrigatório',
+            'unique'=>'Este ramal já está cadastrado',
+            'min'=>'Formato incorreto, quantidade de caracteres muito pequena, campo :attribute',
+            'max'=>'Formato incorreto, quantidade de caracteres muito grande, campo :attribute'
+        ]);
+
         $telefone = Telefone::create([
             'ramaln' => $request->ramaln,
             'responsa' => $request->responsa,

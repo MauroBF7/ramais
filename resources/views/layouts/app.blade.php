@@ -31,5 +31,10 @@
   @parent
   <script>
     // Seu código .js
+    function load(){
+        var mask = new FieldMask("####-####");
+        mask2.backwards = false;
+        mask2.setMaskFor(document.formao.ramaln);
+    }
   </script>
 @endsection
