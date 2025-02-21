@@ -32,7 +32,13 @@ class DivisaController extends Controller
     {
         //dd($request);
         //$request->validated();
-        $request->validate([]);
+        $request->validate([
+            'sigla'=>'required|unique:divisas',
+            'descricao'=>'required|max:80'],
+        [   'unique'=>'Divisão já cadastrada',
+            'required'=>'Este campo é obrigatório',
+            'max'=>'Quantidade máxima é de 80 caracteres'
+    ]);
         $divisa = Divisa::create([
             'sigla' => $request->sigla,
             'descricao' => $request->descricao,
@@ -74,7 +80,7 @@ class DivisaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Divisa $divisa)
+    public function destroy(Request $request, Divisa $divisa)
     {
         $divisa->delete();
         $request->session()->flash('alert-success', 'Divisão/Serviço apagado!');

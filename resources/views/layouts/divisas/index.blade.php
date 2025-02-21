@@ -18,7 +18,7 @@
                     <th scope="col-sm-7">ID</th>
                     <th scope="col-6">SIGLA</th>
                     <th scope="col-1">DESCRIÇÃO</th>
-                    <th scope="col-1">AÇÃO</th>
+                    @can('manager')<th scope="col-1">AÇÃO</th>@endcan
                   </tr>
                 </thead>
                 <tbody>
