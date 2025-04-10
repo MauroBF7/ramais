@@ -35,13 +35,13 @@ Route::get('/telefones/exportacao', [TelefoneController::class, 'exportacao'])->
 Route::get('/', [TelefoneController::class, 'index'])->name('home');
 //Route::get('/telefones/create', [TelefoneController::class, 'create'])->name('telefone.create');
 //Route::get('/divisas/create', [DivisaController::class, 'create'])->name('divisa.created');
-Route::post('/enderecos/storeModal',[EnderecoController::class,'storeModal'])->name('endereco.storeModal');
+Route::post('/telefones/enderecos/storeModal',[EnderecoController::class,'storeModal'])->name('endereco.storeModal');
 Route::resource('/telefones/enderecos',EnderecoController::class);
 Route::resource('/telefones/divisas',DivisaController::class);
 
 Route::get('/telefones/{telefone}/envio-email',[TelefoneController::class,'troca'])->name('telefones.troca');
 Route::post('/telefones/envio/{telefone}',[TelefoneController::class,'envio'])->name('telefones.envio');
-Route::resource('telefones',TelefoneController::class);
+Route::resource('/telefones',TelefoneController::class);
 
 // Permite usar Gate::check('user')na view 404
 Route::fallback(function(){
