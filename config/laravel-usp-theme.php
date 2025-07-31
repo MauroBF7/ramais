@@ -7,17 +7,17 @@ $admin = [
     ],
     [
         'text' => 'Ramais',
-        'url' =>  '/telefones/create',
+        'url' =>  'telefones/create',
         'can' => 'manager',
     ],
     [
         'text' => 'Cadastrar Divisões',
-        'url' =>  '/divisas/create',
+        'url' =>  'telefones/divisas/create',
         'can' => 'admin',
     ],
     [
         'text' => 'Cadastrar Endereços',
-        'url' =>  '/enderecos/create',
+        'url' =>  'telefones/enderecos/create',
         'can' => 'admin',
     ],
     [
@@ -26,61 +26,36 @@ $admin = [
     [
         'type' => 'header',
          'text' => 'Listagens',
+         
      ],
      [
         'text' => 'Ramais',
-        'url' =>  '/telefones',
-        'can' => 'admin',
+        'url' =>  'telefones',
+        'can'=> 'user',
+        
     ],
     [
         'text' => 'Divisões',
-        'url' =>  '/divisas',
-        'can' => 'admin',
+        'url' =>  'telefones/divisas',
+        'can' => 'user',
+        
     ],
     [
         'text' => 'Endereços',
-        'url' =>  '/enderecos',
-        'can' => 'admin',
+        'url' =>  'telefones/enderecos',
+        'can'=> 'user',
+        
     ],
 
 
 ];
 
-$submenu2 = [
-    [
-        'text' => 'SubItem 1',
-        'url' => 'subitem1',
-    ],
-    [
-        'text' => 'SubItem 2',
-        'url' => 'subitem2',
-        'can' => 'admin',
-    ],
-];
 
 $menu = [
-    [
-        'text' => '<i class="fas fa-home"></i> Home',
-        'url' => 'home',
-    ],
-    [
-        # este item de menu será substituido no momento da renderização
-        'key' => 'menu_dinamico',
-    ],
-    [
-        'text' => 'Permissões ativas',
-        'url' => config('app.url') . '/logado', // com caminho absoluto
-        'can' => 'user',
-    ],
-    [
-        'text' => 'Menu gerente',
-        'url' => 'gerente',
-        'can' => 'gerente',
-    ],
-    [
-        'text' => 'Menu admin',
+     [
+        'text' => 'Menu',
         'submenu' => $admin,
-        'can' => 'admin',
+        'can' => 'user',
     ],
 ];
 
@@ -92,13 +67,7 @@ $right_menu = [
     [
         'key' => 'laravel-tools',
     ],
-    [
-        'text' => '<i class="fas fa-cog"></i>',
-        'title' => 'Configurações',
-        'target' => '_blank',
-        'url' => config('app.url') . '/item1',
-        'align' => 'right',
-    ],
+    
 ];
 
 

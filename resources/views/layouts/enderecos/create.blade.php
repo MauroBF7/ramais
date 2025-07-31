@@ -16,7 +16,7 @@
                 {{--Colocar tamanho para esse input--}}
                 <input type="text" name="endereco" size="60" style="border-radius: 15px"> <br /><p>
                 <button type="submit" name="butao" class="btn btn-primary" style="border-radius: 25px">Salvar</button>
-                {{-- <center><a href="{{ route('endsalva') }}" class="btn btn-primary" style="border-radius: 25px">Salvar</a></center> --}}
+                
             </form>
         </div>
     </div>

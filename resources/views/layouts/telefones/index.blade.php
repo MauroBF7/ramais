@@ -56,7 +56,7 @@
                                 <a href="{{ route('telefones.troca', ['telefone' => $telefone, 'divisas' => $divisas]) }}">
                                     <i class="fa fa-edit" title="solicitar alteração"></i></a>
                             </td>
-                            @can('manager')es
+                            @can('manager')
                             <td>
                                 <form id="form_{{ $telefone->id }}" method="post"
                                     action="{{ route('telefones.destroy', $telefone->id) }}"

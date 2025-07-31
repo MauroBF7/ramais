@@ -18,8 +18,8 @@
                 <label for="">Endereço</label><br>
                 {{--Colocar tamanho para esse input--}}
                 <input type="text" name="endereco" size="60" style="border-radius: 15px" value="{{old('endereco',$endereco->endereco)}}"> <br /><p>
-                <button type="submit" name="butao" class="btn btn-primary" style="border-radius: 25px">Salvar Alterações</button>
-                {{-- <center><a href="{{ route('endsalva') }}" class="btn btn-primary" style="border-radius: 25px">Salvar</a></center> --}}
+                @can('manager')<button type="submit" name="butao" class="btn btn-primary" style="border-radius: 25px">Salvar Alterações</button>@endcan
+                @can('manager'){{-- <center><a href="{{ route('endsalva') }}" class="btn btn-primary" style="border-radius: 25px">Salvar</a></center> --}}@endcan
             </form>
         </div>
     </div>

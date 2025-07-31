@@ -18,7 +18,7 @@
                     <th scope="col-sm-7">ID</th>
                     <th scope="col-6">LOCAL</th>
                     <th scope="col-1">ENDEREÇO</th>
-                    <th scope="col-1">AÇÃO</th>
+                    @can('manager')<th scope="col-1">AÇÃO</th>@endcan
                   </tr>
                 </thead>
                 <tbody>
@@ -29,12 +29,12 @@
                     <td><a href="{{ route('enderecos.edit',['endereco'=>$endereco]) }}"> {{ $endereco->id }}</a></td>
                     <td>{{ $endereco->local}}</td>
                     <td>{{ $endereco->endereco }}</td>
-                    <form id="form_{{$endereco->id}}" method="post" action="{{ route('enderecos.destroy', $endereco->id) }}" onsubmit="return confirmaDelete();">
+                    @can('manager')<form id="form_{{$endereco->id}}" method="post" action="{{ route('enderecos.destroy', $endereco->id) }}" onsubmit="return confirmaDelete();">
                         @csrf
                         @method('DELETE')
                          <td>
                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true" title="apagar registro"></i></button>
-                    </form>
+                    @endcan</form>
 
                     </td>
                   </tr>

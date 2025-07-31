@@ -29,12 +29,12 @@
                     <td><a href="{{ route('divisas.edit',['divisa'=>$divisa]) }}"> {{ $divisa->id }}</a></td>
                     <td>{{ $divisa->sigla}}</td>
                     <td>{{ $divisa->descricao }}</td>
-                    <form id="form_{{$divisa->id}}" method="post" action="{{ route('divisas.destroy', $divisa->id) }}" onsubmit="return confirmaDelete();">
+                    @can('manager') <form id="form_{{$divisa->id}}" method="post" action="{{ route('divisas.destroy', $divisa->id) }}" onsubmit="return confirmaDelete();">
                         @csrf
                         @method('DELETE')
                          <td>
                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true" title="apagar registro"></i></button>
-                    </form>
+                    @endcan</form>
 
                     </td>
                   </tr>

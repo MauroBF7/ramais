@@ -32,14 +32,14 @@ class EnderecoController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        $request->validate([]);
+        //$request->validate([]);
         $endereco = Endereco::create([
             'local' => $request->local,
             'endereco' => $request->endereco,
         ]);
         $request->session()->flash('alert-success', 'Endereço cadastrado');
         //Desviar para criar outro ou para mostrar os cadastrados
-        return redirect()->route('enderecos.create');
+        return redirect()->route('enderecos.index');
     }
 /**
      * Store a JavaScript
